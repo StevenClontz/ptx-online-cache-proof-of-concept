@@ -36,7 +36,7 @@ jobs:
             - name: download and unzip cache
               run: |
                 apt update
-                apt install unzip curl
+                apt install -y unzip curl
                 if curl -fLo cache.zip https://stevenclontz.github.io/ptx-online-cache-proof-of-concept/cache.zip; then
                   unzip -o cache.zip || true
                 else
@@ -52,7 +52,7 @@ jobs:
             - name: zip and stage cache
               run: |
                 apt update
-                apt install zip
+                apt install -y zip
                 zip -r cache.zip .cache
                 mkdir -p output/stage/
                 cp cache.zip output/stage/
